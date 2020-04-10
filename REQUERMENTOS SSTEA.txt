@@ -1,0 +1,47 @@
+*************** agregar horas adicionales agregar costo de dichas horas adicionales aplicar descuento
+*************** transferir habitaciones
+
+----------->reportes del dia mes y año rango de fechas
+
+
+-----------> servicios adicionales del hotel (camas, frazadas, almohadas, etc)
+-----------> pago de servicio de habitacion puede ser(pago adelantado, pago despues)
+-----------> envio de boletas y facturas al cooreeo del cliente
+
+boleta, factura, nota interna
+analizar clientes frecuentes en el listado de clientes
+
+AGRUPAMOSLOS DATOS A OPERAR Y OPERAMOS 
+
+costo
+numeroDias
+numeroHoras
+costoHoras
+descuento
+
+
+
+ingreso egresos de personal he nsumos servicos telefono luz manual
+
+
+reportes solo del hotel
+
+adconales costo de cochera 
+
+datos del clente plata del carro color numero dias 
+
+reporte cochera tienda hotel fnal calcular total
+
+
+
+podriamos dividir el servicio hotel
+podriamos dividir el servicio tienda bodega
+
+
+podriamos dividir el servicio cochera
+
+
+adicionales debe desaparecer y agregar un campo para escribir adicionales y escribir el costo
+
+
+

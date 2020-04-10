@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+</head>
+
+<body style="padding: 15px 0px;height: 1000px;">
+    <!--
+    <div id="hamer">
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+        <div class="test" style="width: 100%; height: 20px;background: teal;"></div>
+
+
+        
+    </div>
+-->
+
+
+    <!--<input type="text" onkeyup="yourFunctionKeyup(this, event)">-->
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onpointerdown="mySelect()">
+            <th scope="row">1</th>
+            <td ><input type="text" name="" value="10" onpointerdown="mySelect()"></td>
+            <td onpointerdown="mySelect()">Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr onpointerdown="mySelect()">
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    <div id="contenedor"></div>
+
+    <div id="test" style="width: 100%;height: 100px; background: purple;margin-top: 100vh;"></div>
+</body>
+<style>
+    .test{
+        border: 1px solid black;
+        transform: translateY(1000px);
+    }
+    .animation{
+        animation: myAnimation 100ms 1;
+    }
+
+    @keyframes myAnimation {
+        0%{
+            transform: translateY(100px) scaleX(0.1);
+        }   
+        100%{
+            transform: translateY(0px) scaleX(1);
+        }   
+    }
+
+</style>
+<script type="application/javascript">
+var contenedor;
+    window.addEventListener("DOMContentLoaded", function(e){
+        contenedor = document.getElementById("hamer");
+        //test(contenedor.firstElementChild)
+
+    })
+
+    document.onpointerdown  = function() {
+    
+    selection = document.getSelection();
+    console.log('New selection made ', selection);
+    };
+
+    function mySelect(){
+        console.log("select ")
+    }
+
+    function test(element){
+
+        element.classList.add("animation");
+        element.addEventListener("animationend", function(){
+            this.nextElementSibling.classList.add("animation");
+            this.nextElementSibling.style.transform = 'translateY(0px)';
+            test(this.nextElementSibling);
+        });
+    }   
+
+
+//x.addEventListener("webkitAnimationEnd", myEndFunction);
+    var myClass = (function(){
+        myClass.prototype.calendario = function(myAnio){
+            var diasSemana = [ "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO"],
+            diasAnio = 0,
+            anio = [];
+            for (var i = 1; i < 13; i++) {
+
+            var numeroDiasMes = new Date(myAnio, i, 0).getUTCDate(),
+            mes = [];
+
+            for (var j = 0; j < numeroDiasMes; j++) {
+
+                var numeroDia = new Date(myAnio, i-1, j),
+                nombreDia = diasSemana[ numeroDia.getUTCDay() ];
+
+                mes.push( {nombreDia: nombreDia, numeroDia: (j+1)} );
+
+                diasAnio++;
+            }
+
+            anio.push(mes);
+            }
+
+            return {diasAnio: diasAnio, anio: anio, bisiesto: (diasAnio > 365) ? true : false};
+        };
+        myClass.prototype.meses = [
+			"ENERO", 
+			"FEBRERO", 
+			"MARZO", 
+			"ABRIL", 
+			"MAYO", 
+			"JUNIO", 
+			"JULIO",
+			"AGOSTO",
+			"SEPTIEMBRE",
+			"OCTUBRE",
+			"NOVIEMBRE",
+			"DICIEMBRE"
+		];
+    });
+
+
+    var anio = new Date().getFullYear(),
+    mes = new Date().getMonth(),
+    dia = new Date().getDate();
+    
+
+    var myDiv = document.getElementById("test");
+    
+    var numeroLote = mes;
+    
+
+    var myObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+
+            var tr = "";
+            
+            tr += `<details style="background: purple;width:100%;" open>`;
+            tr += `<summary>VENTAS ${anio}</summary>`;
+
+            // RECORREMOS LOS MESES DEL AÑO ACTUAL
+            
+            for (let i = 11; i >= 0; i--) {
+                tr +='<details style="background: teal;width:100%;">';
+                tr += `<summary>${new myClass().meses[i]} - ${anio} </summary>`;
+
+                for (const dia of new myClass().calendario(anio).anio[i]) {
+                    tr += `<details style="background: purple;width:100%;">`;
+                    tr += `<summary>${dia.nombreDia} ${dia.numeroDia}</summary>`;
+
+                    tr += `</details>`;
+                }
+
+                tr += `</details>`;
+            }
+
+            tr += `</details>`;
+
+
+            if (anio >= 2015) {
+                anio--;
+            }else{
+                return false;
+            }
+            
+            document.getElementById("contenedor").innerHTML += tr;
+            
+            
+            /*
+            
+            
+            console.log(numeroLote)
+            */
+        }
+        
+    });
+
+    myObserver.observe(myDiv);
+
+    /*
+    var nombre = "LILETH";
+    console.log(/LILETH/i.test("LI"))
+    //
+
+    function yourFunctionKeyup($this, $event){
+        
+        if (/\S/.test($this.value.trim())) {
+            console.log("one");
+            if (/\s/.test($this.value.trimStart())) {
+                console.log("run...");
+            } 
+        }    
+    }
+    */
+
+
+
+
+    /*
+
+
+    window.addEventListener("DOMContentLoaded", function(e){
+
+
+
+
+        var vocales = ["A", "E", "I", "O", "U"];
+        var tipoDocumento = ["DNI", "RUC", "PASAPORTE", "OTRO"];
+        var abecedario = [" B "," C "," D "," F "," G "," H "," J "," K "," L "," M "," N "," P "," Q "," R "," S "," T "," V "," W "," X "," Y "," Z"];
+        var numero = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        var insertMany = [];
+
+        for (let e = 0; e < 100; e++) {
+
+            var myObject = {};
+            var nombre = "";
+            for (let i = 0; i < 5; i++) {
+                nombre += abecedario[Math.floor(Math.random() * abecedario.length)];
+                nombre += vocales[Math.floor(Math.random() * vocales.length)];
+                nombre += abecedario[Math.floor(Math.random() * abecedario.length)];
+                nombre += vocales[Math.floor(Math.random() * vocales.length)];
+                nombre += abecedario[Math.floor(Math.random() * abecedario.length)];
+                break;
+            }
+
+            var numeroDocumento = "";
+            for (let h = 0; h < 8; h++) {
+                numeroDocumento += numero[Math.floor(Math.random() * numero.length)];
+            }
+
+            insertMany.push({
+                nombres: nombre, 
+                "tipoDocumento" : tipoDocumento[Math.floor(Math.random() * tipoDocumento.length)],
+                "numeroDocumento" : numeroDocumento
+            });
+
+            console.log("create ", e)
+            
+        }
+        console.log("insertMany : ", insertMany);
+
+    });
+    */
+</script>
+</html>
