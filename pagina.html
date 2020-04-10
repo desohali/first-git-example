@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="es-ES">
+    <!--aqui escribo mi comentario-->
+    <head>
+        <title>Page Title</title>
+    </head>
+    <script src="index.js"></script>
+    <style type="text/css">
+        span{
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            margin: 0px 5px;
+        }
+    </style>
+    <body>
+
+        <div style="width: 100%;">
+            <h3 align="center">SISTEMA HOTELERO</h3>
+        </div>
+
+        <div id="drag1" class="boxDrag" style="width: 200px; height: 50px;background: teal;" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', this.id)">
+            TEXTO ALTERNATIVO 1
+        </div>
+
+        <div id="drag2" class="boxDrag" style="width: 200px; height: 50px;background: teal;" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', this.id)">
+            TEXTO ALTERNATIVO 2
+        </div>
+
+        <div id="drag3" class="boxDrag" style="width: 200px; height: 50px;background: teal;" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', this.id)">
+            TEXTO ALTERNATIVO 3
+        </div>
+
+        <!--
+        <div id="boxDrag" style="width: 400px; height: 200px;border: 1px solid teal;">
+        </div>
+        -->
+
+        <div id="boxAdicional" style="width: 400px; height: 31px; border: 1px solid black;">
+
+        </div>
+        <label for="">Adicioanles</label>
+        <input type="text" name="" list="myList" onchange="agregarAdicional(this, myList)">
+        <datalist id="myList">
+            <option title="1" value="hamer S/. 10.00"></option>
+            <option title="2" value="pedro S/. 30.00"></option>
+            <option title="3" value="juan S/. 20.00"></option>
+            <option title="4" value="junnior S/. 16.00"></option>
+            <option title="5" value="samual S/. 11.00"></option>
+        </datalist>
+
+            <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"value="cliente"  checked>
+            <label class="custom-control-label" for="customRadio1">CLIENTE</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"value="habitacion" >
+            <label class="custom-control-label" for="customRadio2">HABITACIÓN</label>
+          </div>
+
+          <div id="habitacion" style="display: none;">
+              habitacion
+          </div>
+          <div id="cliente" style="display: none;">
+            cliente
+        </div>
+
+    </body>
+
+    <script>
+
+        var myObject = {name: "hamer", edad: "28", ciudad: "cajabamaba", salario: 1};
+
+        var {name, ciudad} = descuartizarObject = myObject;
+        console.log("descuartizarObject ", descuartizarObject)
+
+        var radios = document.getElementsByName("customRadio");
+
+        for (const radio of radios) {
+            if (radio.checked) {
+                console.log("primara ves : ", radio.value);
+            }
+            radio.addEventListener("change", function(e){
+                console.log(this.value)
+                //this.checked = true;
+            });
+        }
+
+        function agregarAdicional($this, myList){
+
+            for (const option of myList.children) {
+                
+                if (option.value.trim() === $this.value.trim()) {
+                    $this.setAttribute("data-id", option.getAttribute("title"));
+
+                    var mySpan = document.createElement("span"),
+                    textSpan = document.createTextNode(option.value.trim());
+                    mySpan.appendChild(textSpan);
+                    mySpan.addEventListener("click", function(e){
+                        this.remove();
+                    });
+
+                    boxAdicional.appendChild(mySpan);
+                    break;
+                }
+            }
+
+            $this.value = "";
+            
+            //console.log($this, myList)
+        }
+
+
+
+
+        var drag = document.getElementById("drag"),
+        boxDrag =  document.querySelectorAll(".boxDrag");
+        /*
+
+        drag.addEventListener("dragstart", function(e){
+            e.dataTransfer.setData("text/plain", e.target.id);
+        });
+        
+        drag.addEventListener("drag", function(e){
+            //console.log("drag : ");
+        });
+
+        drag.addEventListener("dragend", function(e){
+            //console.log("dragend : ", e.dataTransfer.getData("text"));
+        });
+        */
+
+        for (const box of boxDrag) {
+            box.addEventListener("dragover", function(e){
+                e.preventDefault();
+            }, false);
+
+            box.addEventListener("drop", function(e){
+                e.preventDefault();
+                //const element = document.getElementById(e.dataTransfer.getData("text"));
+
+                //this.appendChild(element);
+                console.log("---------> ", e.dataTransfer.getData("text") );
+            }, false);
+        }
+
+        
+        
+
+    </script>
+
+</html>
+
+
+
+
+
+
